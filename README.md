@@ -24,17 +24,19 @@ pip install -r requirements.txt
 ./manage.py collectstatic
 ```
 
-### 3. Run the server, navigate to your admin enpoint and create some Car objects:
+### 3. Run the server in any available port:
 
 ```bash
 uvicorn --port 8000 websocket_app.asgi:application --reload
 ```
 
-### 4. Open a new browser tab and in Developer Tools, go to Console tab go test the websocket conection:
+### 4. Navigate to your admin or connect to your db (sqlite by default) with any manager and create some Car objects.
+
+### 5. Open a new browser tab, go to Developer Tools, open the Console tab and we will proceed to test the websockets server as follows:
 
 ```javascript
-ws = new WebSocket("ws://localhost:8000/");
-ws.onmessage = event => console.log(event.data);
+ws = new WebSocket("ws://localhost:8000/"); //We create a new connection to our server specifying the protocol, address, and port
+ws.onmessage = event => console.log(event.data); //We define the behavior that our client will have with the incoming messages
 
 // Send some message to the websocket server
 ws.send("ping"); // recieve "pong!"
