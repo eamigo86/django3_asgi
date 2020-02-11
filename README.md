@@ -30,7 +30,7 @@ pip install -r requirements.txt
 uvicorn --port 8000 websocket_app.asgi:application --reload
 ```
 
-### 4. Navigate to your admin or connect to your db (sqlite by default) with any manager and create some Car objects.
+_NOTE:_ Navigate to your admin or connect to your db (sqlite by default) with any DB Manager app and create some Car objects.
 
 ### 5. Open a new browser tab, go to Developer Tools, open the Console tab and we will proceed to test the websockets server as follows:
 
