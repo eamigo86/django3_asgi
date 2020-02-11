@@ -39,7 +39,7 @@ DJANGO_APPS = (
     "django.contrib.staticfiles",
 )
 
-CUSTOM_APPS = ("_test.apps.TestConfig",)
+CUSTOM_APPS = ("test_app.apps.TestConfig",)
 
 INSTALLED_APPS = DJANGO_APPS + CUSTOM_APPS
 

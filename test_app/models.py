@@ -9,7 +9,8 @@ class Car(models.Model):
     year = models.PositiveIntegerField(default=date.today().year, blank=True)
 
     class Meta:
-        app_label = "_test"
+        app_label = "test_app"
+        ordering = ("plate",)
 
     def __str__(self):
         return self.plate
