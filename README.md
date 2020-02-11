@@ -31,7 +31,7 @@ uvicorn --port 8000 websocket_app.asgi:application --reload
 ```
 __NOTE__: After a client connects to the server via WebSocket, the server will start sending a message every __X__ seconds (1 <= __X__ <= 6)
 
-### 4. Navigate to your admin or connect to your db (sqlite by default) with any DB Manager app and create some Car objects.
+### 4. Navigate to your admin site or connect to your db (sqlite by default) with any DB Manager app and create some Car objects.
 
 ### 5. Open a new browser tab, go to Developer Tools, open the Console tab and we will proceed to test the websocket server as follows:
 
