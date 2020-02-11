@@ -129,6 +129,5 @@ dmypy.json
 .pyre/
 
 key.pem
-cert.pem
 crt.pem
 venv/*
