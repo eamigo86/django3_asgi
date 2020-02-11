@@ -43,5 +43,5 @@ ws.send("ping"); // recieve "pong!"
 
 ws.send("car"); // recieve the plate value for the first car object in db
 ws.send("car:3"); // recieve the plate value for the car with id=3 in your db
-ws.send("car:invalid_id"); // recieve "Do not exists any car in the with id 'invalid_id'"
+ws.send("car:1000"); // recieve "Do not exists any car in the with id '1000'"
 ```
