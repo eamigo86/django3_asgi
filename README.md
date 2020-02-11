@@ -2,7 +2,7 @@
 
 This is a test project of how to implement WebSockets with Django >= 3.0 without the need for any extra libraries:
 
-_NOTE:_ Require Python 3.6 or higher
+__NOTE:__ Require Python 3.6 or higher
 
 ## How test it:
 
@@ -29,7 +29,7 @@ pip install -r requirements.txt
 ```bash
 uvicorn --port 8000 websocket_app.asgi:application --reload
 ```
-_NOTE_: After a client connects to the server via WebSocket, the server will start sending a message every _X_ seconds (1 <= _X_ <= 6)
+__NOTE__: After a client connects to the server via WebSocket, the server will start sending a message every __X__ seconds (1 <= __X__ <= 6)
 
 ### 4. Navigate to your admin or connect to your db (sqlite by default) with any DB Manager app and create some Car objects.
 
