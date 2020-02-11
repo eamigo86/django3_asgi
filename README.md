@@ -35,7 +35,10 @@ __NOTE__: After a client connects to the server via WebSocket, the server will s
 
 ### 5. Open a new browser tab, go to Developer Tools, open the Console tab and we will proceed to test the websocket server as follows:
 
+
 ```javascript
+// This is to simulate a client application. 
+
 ws = new WebSocket("ws://localhost:8000/"); //We create a new connection to our server specifying the protocol, address, and port
 ws.onmessage = event => console.log(event.data); //We define the behavior that our client will have with the incoming messages
 
