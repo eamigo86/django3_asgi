@@ -4,21 +4,6 @@ import random
 from asgiref.sync import sync_to_async
 
 
-async def broadcast_messages(scope, send):
-    client = ":".join(map(lambda x: str(x), scope["client"]))
-
-    while True:
-        timeout = random.randint(1, 6)
-        await asyncio.sleep(timeout)
-
-        await send(
-            {
-                "type": "websocket.send",
-                "text": f"Server broadcast message to client '{client}', after {timeout} seconds",
-            }
-        )
-
-
 async def websocket_application(scope, receive, send):
     loop = asyncio.get_event_loop()
     task = None
@@ -37,6 +22,21 @@ async def websocket_application(scope, receive, send):
 
         elif event["type"] == "websocket.receive":
             await on_receive(event, send)
+
+
+async def broadcast_messages(scope, send):
+    client = ":".join(map(lambda x: str(x), scope["client"]))
+
+    while True:
+        timeout = random.randint(1, 6)
+        await asyncio.sleep(timeout)
+
+        await send(
+            {
+                "type": "websocket.send",
+                "text": f"Server broadcast message to client '{client}', after {timeout} seconds",
+            }
+        )
 
 
 async def on_receive(event, send):
