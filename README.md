@@ -6,7 +6,7 @@ _NOTE:_ Require Python 3.6 or higher
 
 ## How test it:
 
-### 1. Create a folder, clone the repo, create a virualenv and install the required packages:
+### 1. Create a folder, clone the repo, create a virtualenv and install the required packages:
 
 ```bash
 mkdir django_websockets && cd django_websockets
@@ -29,19 +29,20 @@ pip install -r requirements.txt
 ```bash
 uvicorn --port 8000 websocket_app.asgi:application --reload
 ```
+_NOTE_: After a client connects to the server via WebSocket, the server will start sending a message every _X_ seconds (1 <= _X_ <= 6)
 
-_NOTE:_ Navigate to your admin or connect to your db (sqlite by default) with any DB Manager app and create some Car objects.
+### 4. Navigate to your admin or connect to your db (sqlite by default) with any DB Manager app and create some Car objects.
 
-### 4. Open a new browser tab, go to Developer Tools, open the Console tab and we will proceed to test the websockets server as follows:
+### 5. Open a new browser tab, go to Developer Tools, open the Console tab and we will proceed to test the websocket server as follows:
 
 ```javascript
 ws = new WebSocket("ws://localhost:8000/"); //We create a new connection to our server specifying the protocol, address, and port
 ws.onmessage = event => console.log(event.data); //We define the behavior that our client will have with the incoming messages
 
 // Send some message to the websocket server
-ws.send("ping"); // recieve "pong!"
+ws.send("ping"); // receive "pong!"
 
-ws.send("car"); // recieve the plate value for the first car object in db
-ws.send("car:3"); // recieve the plate value for the car with id=3 in your db
-ws.send("car:1000"); // recieve "Do not exists any car in the with id '1000'"
+ws.send("car"); // receive the plate value for the first car object in db
+ws.send("car:3"); // receive the plate value for the car with id=3 in your db
+ws.send("car:1000"); // receive "Do not exists any car in the with id '1000'"
 ```
